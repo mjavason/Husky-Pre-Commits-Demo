@@ -49,7 +49,9 @@ app.get('/api', async (req: Request, res: Response) => {
     });
   } catch (error: any) {
     console.error('Error calling external API:', error.message);
-    return res.status(500).send({ error: 'Failed to call external API' });
+    return res.status(500).send({
+      error: 'Failed to call external API',
+    });
   }
 });
 
@@ -82,18 +84,21 @@ app.get('/', (req: Request, res: Response) => {
  *         description: Route not found
  */
 app.use((req: Request, res: Response) => {
-  return res
-    .status(404)
-    .json({ success: false, message: 'API route does not exist' });
+  return res.status(404).json({
+    success: false,
+    message: 'API route does not exist',
+  });
 });
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   // throw Error('This is a sample error');
 
   console.log(`${'\x1b[31m'}${err.message}${'\x1b][0m]'} `);
-  return res
-    .status(500)
-    .send({ success: false, status: 500, message: err.message });
+  return res.status(500).send({
+    success: false,
+    status: 500,
+    message: err.message,
+  });
 });
 
 app.listen(PORT, async () => {
