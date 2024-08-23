@@ -23,6 +23,8 @@ setupSwagger(app, BASE_URL);
 
 //#region Code here
 console.log('Hello world');
+
+console.log('Hi computer');
 //#endregion
 
 //#region Server Setup
