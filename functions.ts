@@ -10,3 +10,6 @@ export async function pingSelf(url: string) {
     return false;
   }
 }
+
+// (for render services) Keep the API awake by pinging it periodically
+// setInterval(pingSelf(BASE_URL), 600000); //ping every 10 minutes
